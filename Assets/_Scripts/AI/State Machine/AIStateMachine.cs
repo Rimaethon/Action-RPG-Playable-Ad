@@ -25,14 +25,11 @@ namespace _Scripts.AI.State_Machine
 			currentState?.Update(agent);
 		}
 
-		public void ChangeState(AIState newStateType)
+		public void ChangeState(AIStates newStatesType)
 		{
-			IAIState newState = states[(int) newStateType];
-
+			IAIState newState = states[(int) newStatesType];
 			if (currentState != null && newState == currentState)
-			{
 				return;
-			}
 
 			currentState?.Exit(agent);
 			currentState = newState;
