@@ -10,11 +10,11 @@ namespace _Scripts.AI
 	{
 		public AIAgentConfigSO configSO;
 		public Transform playerTransform;
-		public bool hasTarget;
-		public Animator Animator;
-		public bool attacking;
-		private CapsuleCollider capsuleCollider;
 		public AIStateMachine StateMachine;
+		public Animator Animator;
+		private CapsuleCollider capsuleCollider;
+		public bool hasTarget;
+		public bool attacking;
 
 		protected override void Awake()
 		{
@@ -40,13 +40,13 @@ namespace _Scripts.AI
 			hasTarget = true;
 			attacking = false;
 			capsuleCollider.enabled = true;
-			StateMachine.ChangeState(AIState.CHASE_PLAYER);
+			StateMachine.ChangeState(AIStates.CHASE_PLAYER);
 			Animator.SetBool("IsDead", false);
 		}
 
 		public void SetDeadState()
 		{
-			StateMachine.ChangeState(AIState.DEAD);
+			StateMachine.ChangeState(AIStates.DEAD);
 			capsuleCollider.enabled = false;
 			StartCoroutine(DisableOnEndCoroutine(3));
 		}
