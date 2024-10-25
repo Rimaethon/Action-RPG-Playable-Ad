@@ -4,12 +4,9 @@ namespace _Scripts.Interfaces
 {
 	public interface IAIState
 	{
-		AIState GetStateID();
-
+		AIStates GetStateID();
 		void Enter(BaseAIAgent agent);
-
 		void Update(BaseAIAgent agent);
-
 		void Exit(BaseAIAgent agent);
 	}
 }
